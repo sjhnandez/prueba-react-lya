@@ -53,6 +53,7 @@ button:hover {
     .content {
       display: flex;
       flex-direction: column;
+      transition: max-height 0.5s ease-in;
     }
     .task-placeholder {
       display: flex;

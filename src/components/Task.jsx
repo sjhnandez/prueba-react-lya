@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import EditOutlinedIcon from "@material-ui/icons/EditOutlined";
 import SaveOutlinedIcon from "@material-ui/icons/SaveOutlined";
 import DeleteForeverOutlinedIcon from "@material-ui/icons/DeleteForeverOutlined";
+import { animated } from "react-spring";
 
 import "../stylesheets/Task.scss";
 
 const Task = (props) => {
   return (
-    <div className="task">
+    <animated.div className="task" style={props.style}>
       <div className="content">
         {props.editing ? (
           <input value={props.text} onChange={props.onChange} />
@@ -28,7 +29,7 @@ const Task = (props) => {
       <button className="filled-button" onClick={props.onClickDelete}>
         <DeleteForeverOutlinedIcon />
       </button>
-    </div>
+    </animated.div>
   );
 };
 
