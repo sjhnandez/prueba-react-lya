@@ -6,20 +6,17 @@ import DeleteForeverOutlinedIcon from "@material-ui/icons/DeleteForeverOutlined"
 import "../stylesheets/Task.scss";
 
 const Task = (props) => {
-  const [text, setText] = useState("");
-  useEffect(() => setText(props.text), [props.text]);
-
   return (
     <div className="task">
       <div className="content">
         {props.editing ? (
-          <input value={text} onChange={(e) => setText(e.target.value)} />
+          <input value={props.text} onChange={props.onChange} />
         ) : (
-          <span>{text}</span>
+          <span>{props.text}</span>
         )}
       </div>
       {props.editing ? (
-        <button className="filled-button" onClick={() => props.onSave(text)}>
+        <button className="filled-button" onClick={props.onSave}>
           <SaveOutlinedIcon />
         </button>
       ) : (

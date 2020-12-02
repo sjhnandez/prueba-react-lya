@@ -27,6 +27,14 @@ const App = () => {
               key={idx}
               text={task.text}
               editing={task.editing}
+              keyo={idx}
+              onChange={(e) =>
+                setTasks((prev) => {
+                  let newarr = prev;
+                  newarr[idx].text = e.target.value;
+                  return [...newarr];
+                })
+              }
               onClickEdit={() =>
                 setTasks((prev) => {
                   let newarr = prev;
@@ -34,10 +42,9 @@ const App = () => {
                   return [...newarr];
                 })
               }
-              onSave={(text) =>
+              onSave={() =>
                 setTasks((prev) => {
                   let newarr = prev;
-                  newarr[idx].text = text;
                   newarr[idx].editing = false;
                   return [...newarr];
                 })
