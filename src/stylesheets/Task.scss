@@ -1,0 +1,30 @@
+.task {
+  display: flex;
+  padding: 20px;
+  align-items: center;  
+  .content {
+    flex: 1;
+    display: flex;
+    span,
+    input {
+      flex: 1;
+      font-size: 16px;
+      min-width: 0;
+    }
+    span {
+      margin-left: 4px;
+    }
+    input {
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  .filled-button {
+    padding: 0;
+    margin-left: 20px;
+    svg {
+      font-size: 30px;
+    }
+  }
+}
