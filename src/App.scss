@@ -73,20 +73,18 @@ button:hover {
 }
 
 .nostyle-button {
+  @extend button;
   border: none;
   background-color: transparent;
   margin: 0;
   padding: 0;
   display: flex;
   transition: filter 0.3s;
-  &-icon {
-    @extend .nostyle-button;
-    &:hover {
-      filter: brightness(1.2);
-    }
-    &:active {
-      filter: brightness(0.8);
-    }
+  &:hover {
+    filter: brightness(1.2);
+  }
+  &:active {
+    filter: brightness(0.8);
   }
   .MuiSvgIcon-root {
     font-size: inherit;
@@ -94,7 +92,7 @@ button:hover {
 }
 
 .filled-button {
-  @extend .nostyle-button-icon;
+  @extend .nostyle-button;
   border-radius: 5px;
   background-color: #1fcabf;
   color: white;

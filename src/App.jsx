@@ -20,19 +20,16 @@ const App = () => {
       <div className="main-container">
         <div className="header">
           <h1>To-Do List</h1>
-          {tasks.length > 1
-            ? tasks.length + " tasks remaining"
-            : tasks.length === 0
-            ? "You have no pending tasks!"
-            : "1 task remaining"}
+          Click on a task to cross it out
         </div>
-        <animated.div className="content">
+        <div className="content">
           {transitions.map(({ item, props, key }) => (
             <Task
               key={key}
               style={props}
               text={item.text}
               editing={item.editing}
+              completed={item.completed}
               onChange={(e) =>
                 setTasks((prev) => {
                   let newarr = prev;
@@ -66,6 +63,13 @@ const App = () => {
                   })
                 );
               }}
+              onComplete={() => {
+                let newarr = tasks;
+                newarr[
+                  tasks.map((task) => task.key).indexOf(key)
+                ].completed = !item.completed;
+                setTasks([...newarr]);
+              }}
             />
           ))}
           <div className="task-placeholder">
@@ -75,7 +79,12 @@ const App = () => {
                 setTasks((prevTasks) => {
                   return [
                     ...prevTasks,
-                    { key: idCounter, text: "", editing: true },
+                    {
+                      key: idCounter,
+                      text: "",
+                      editing: true,
+                      completed: false,
+                    },
                   ];
                 });
                 setIdCounter((prev) => prev + 1);
@@ -89,7 +98,7 @@ const App = () => {
               <span>Add random cat facts</span>
             </button>
           </div>
-        </animated.div>
+        </div>
       </div>
     </div>
   );

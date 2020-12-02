@@ -1,7 +1,8 @@
 .task {
   display: flex;
-  padding: 20px;
-  align-items: center;  
+  padding: 10px 20px;
+  align-items: center;
+  border-bottom: 1px solid rgb(255, 145, 0);
   .content {
     flex: 1;
     display: flex;
@@ -13,6 +14,11 @@
     }
     span {
       margin-left: 4px;
+      width: fit-content;
+      &.cross-out {
+        text-decoration: line-through;
+        color: gray;
+      }
     }
     input {
       &:focus {

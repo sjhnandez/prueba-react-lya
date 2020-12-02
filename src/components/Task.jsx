@@ -13,7 +13,12 @@ const Task = (props) => {
         {props.editing ? (
           <input value={props.text} onChange={props.onChange} />
         ) : (
-          <span>{props.text}</span>
+          <span
+            className={"nostyle-button" + (props.completed ? " cross-out" : "")}
+            onClick={props.onComplete}
+          >
+            {props.text}
+          </span>
         )}
       </div>
       {props.editing ? (
