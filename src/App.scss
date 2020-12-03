@@ -144,3 +144,27 @@ button:hover {
     }
   }
 }
+
+@media (max-width: 560px) {
+  .App .main-container {
+    &.min-h {
+      min-height: 240px;
+    }
+  }
+}
+
+@media (max-width:400px) {
+  .App .main-container {
+    &.min-h {
+      min-height: 270px;
+    }
+  }
+}
+
+@media (max-width:350px) {
+  .App .main-container {
+    &.min-h {
+      min-height: 290px;
+    }
+  }
+}
